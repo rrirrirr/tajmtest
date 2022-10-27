@@ -1,0 +1,25 @@
+.title {
+}
+
+.container {
+  width: inherit;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.vertical {
+  justify-content: center;
+}
+
+.horizontal {
+  justify-content: center;
+}
+
+.sideways {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}

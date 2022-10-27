@@ -1,0 +1,58 @@
+.datePickerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 0.5rem;
+}
+
+.datePicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dateInput {
+  border-radius: 0.8rem;
+  padding: 0.5rem;
+}
+
+
+.tasksContainer {
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+  height: 75vh;
+}
+
+.button {
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.smallButton {
+  font-size: 2rem;
+  border-left: 0;
+  border-right: 0;
+  width: 50vw;
+  background: linear-gradient(160deg, #f2cdcd, #f2cdcd90);
+}
+
+.buttonBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.border {
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+  width: 100%;
+  height: 5vh;
+  background: linear-gradient(160deg, #f2cdcd, #f2cdcd90);
+  border-bottom: solid 2px;
+  border-top: solid 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

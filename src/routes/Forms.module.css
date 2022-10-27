@@ -1,0 +1,56 @@
+.container {
+  height: 70vh;
+}
+
+.form {
+	height:100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.textInput {
+  border-radius: 1rem;
+  font-size: 2rem;
+  width:80%;
+}
+
+.select {
+  border-radius: 1rem;
+  font-size: 2rem;
+  width:80%;
+}
+
+.colorBox {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  align-self: center;
+}
+
+.button {
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
+  margin: 0.2rem;
+}
+
+.colorBar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 70%;
+  align-self:center;
+}
+
+.colorButton {
+  border-radius: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.3rem;
+}
+
+.buttonBar {
+  display: flex;
+}

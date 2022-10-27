@@ -1,0 +1,22 @@
+.container {
+	height: 10vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.tabItem {
+  background-color:#cc928b;
+  border: solid 1px;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.active {
+  border: solid 2px;
+}
