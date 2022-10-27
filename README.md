@@ -10,10 +10,10 @@ En tajming-app!
 Jag har använt CSS Modules. Bra för att slippa konflikter.
 
 Användbarheten är dålig eftersom jag experimenterade lite
-med en dålig ide. En dåligt fungerand dragspelsscroll.
+med en dålig ide. En dåligt fungerande dragspelsscroll.
 
 ### 2. npm-paket som används
-Axios - Sparar några rader kod:
+Axios - Sparar några rader kod.
 date-fns - För att formatera datum samt göra vissa uträkningar med Date-objekt.
 react-datepicker - För att jag inte orkade göra en egen datepicker.
 
