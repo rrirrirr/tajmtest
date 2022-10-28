@@ -9,8 +9,8 @@ En tajming-app!
 ### 1. Val av sätt att styla
 Jag har använt CSS Modules. Bra för att slippa konflikter.
 
-Användbarheten är dålig eftersom jag experimenterade lite
-med en dålig ide. En dåligt fungerande dragspelsscroll.
+Användbarheten är dålig eftersom jag experimenterade med en dålig ide.
+En dåligt fungerande dragspelsscroll.
 
 ### 2. npm-paket som används
 Axios - Sparar några rader kod.
