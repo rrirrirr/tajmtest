@@ -17,6 +17,7 @@ export default function Task() {
   const [task, setTask] = useState()
   const [project, setProject] = useState()
   const [tasksTimers, setTasksTimers] = useState([])
+  const [failed, setFailed] = useState(false)
   const { tasks, getTask } = useTasksContext()
   const { projects, getProject } = useProjectsContext()
   const { timers, getTimers } = useTimersContext()
@@ -28,7 +29,8 @@ export default function Task() {
   }, [timers, task, projects])
 
   useEffect(() => {
-    setTask(getTask(id))
+    const res = getTask(id)
+    res.projectId !== 'none' ? setTask(res) : setFailed(true)
   }, [tasks])
 
   return (
@@ -48,9 +50,8 @@ export default function Task() {
                   <Link to={`../../timers/${task.id}`}>
                     {new Date(timer.start).toDateString()}
                   </Link>
-                  <p><b>
-                  	{timeString(totalTime(timer))}
-                  </b>
+                  <p>
+                    <b>{timeString(totalTime(timer))}</b>
                   </p>
                   <h2>
                     <Link to={`../projects/${project.id}`}>{project.name}</Link>
@@ -68,30 +69,32 @@ export default function Task() {
               </ListContent>
             )}
           </List>
+          <div className={`${styles.buttonBar}`}>
+            <Form action="edit" task={task}>
+              <button type="submit" className={`${styles.smallButton}`}>
+                Ändra
+              </button>
+            </Form>
+            <Form
+              method="post"
+              action="destroy"
+              onSubmit={(e) => {
+                if (!confirm('Vill du verkligen ta bort denna task?')) {
+                  e.preventDefault()
+                }
+              }}
+            >
+              <button type="submit" className={`${styles.smallButton}`}>
+                Ta bort
+              </button>
+            </Form>
+          </div>
         </div>
+      ) : failed ? (
+        <p>Hittade inte task</p>
       ) : (
-        <p>Inget att visa</p>
+        <p>loading</p>
       )}
-      <div className={`${styles.buttonBar}`}>
-        <Form action="edit" task={task}>
-          <button type="submit" className={`${styles.smallButton}`}>
-            Ändra
-          </button>
-        </Form>
-        <Form
-          method="post"
-          action="destroy"
-          onSubmit={(e) => {
-            if (!confirm('Vill du verkligen ta bort denna task?')) {
-              e.preventDefault()
-            }
-          }}
-        >
-          <button type="submit" className={`${styles.smallButton}`}>
-            Ta bort
-          </button>
-        </Form>
-      </div>
     </>
   )
 }

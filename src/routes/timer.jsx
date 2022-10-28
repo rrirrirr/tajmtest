@@ -24,10 +24,15 @@ export default function Timer() {
   const [totalToday, setTotalToday] = useState(0)
   const [activeTimersUpdate, setActiveTimersUpdate] = useState(0)
   const [activeTimersIndex, setActiveTimersIndex] = useState(-1)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     if (tasks.length && projects.length && timers) {
       const task = getTask(id)
+      if(task.projectId === 'none') {
+        setFailed(true)
+        return
+      }
       const project = getProject(task.projectId)
       setProject(project)
       if (timers.length) {
@@ -81,12 +86,14 @@ export default function Timer() {
                     value={task.id}
                     className={styles.button}
                   >
-                    Start
+                    Starta
                   </button>
                 </fetcher.Form>
               </>
             )}
           </>
+        ) : failed ? (
+          <p>Hittade inte timer</p>
         ) : (
           <p>loading</p>
         )}
