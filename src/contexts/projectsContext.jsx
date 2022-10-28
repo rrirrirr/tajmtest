@@ -7,7 +7,7 @@ export function ProjectsProvider({ children }) {
   const [projects, setProjects] = useState([])
 
 	function getProject(id) {
-  	return projects.find(project => project.id == id)
+  	return projects.find(project => project.id === id)
 	}
 
   const providerValue = {
