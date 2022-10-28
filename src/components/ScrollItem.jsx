@@ -67,7 +67,7 @@ export default function ScrollItem(props) {
     <div
       style={{
         background: `linear-gradient(160deg, ${bgColor}, ${bgColor}80)`,
-        filter: 'contrast(200%) brightness(120%)',
+        filter: 'contrast(150%) brightness(100%)',
         width: `${update}px`
       }}
       className={styles.scrollItem}
