@@ -28,7 +28,6 @@ export function TimersProvider({ children }) {
       if (!interval.current) {
         interval.current = setInterval(() => {
           const now = new Date()
-          console.log('inteval')
           setActiveTimers(
             activeTimers.map((timer) => {
               return {
