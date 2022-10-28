@@ -12,7 +12,6 @@ export default function List(props) {
       <HorizontalScroll
         color={props.color}
         items={props.items}
-        onScroll={(e) => console.log(e.target.scrollLeft)}
       >
         <div className={styles.ghostItem}>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -26,8 +25,3 @@ export default function List(props) {
   )
 }
 
-// <HorizontalScroll>
-//   {items.map((item) => (
-//     <ScrollItem item={item} />
-//   ))}
-// </HorizontalScroll>

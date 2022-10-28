@@ -44,12 +44,9 @@ export function combineArraysByKey(arrays) {
                 .get(key)[0]
                 .forEach((pair) => (elemCopy[pair[0]] = pair[1]))
             : holder.get(key).forEach((propPair) => {
-                // console.log(propPair)
                 propPair.forEach((pair) => {
                   if (!elemCopy[pair[0]]?.length) elemCopy[pair[0]] = []
                   elemCopy[pair[0]].push(pair[1])
-                  // console.log(pair)
-                  // console.log(elemCopy[[pair[0]]])
                 })
               })
         })

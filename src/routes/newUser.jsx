@@ -4,9 +4,7 @@ import { addUser } from '../api/updateUserData'
 export async function action({ request, params }) {
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
-  console.log(data)
   const res = await addUser(data)
-  console.log(res)
   return redirect(`/${data.user}/overview/projects`)
 }
 

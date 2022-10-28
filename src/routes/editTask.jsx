@@ -9,7 +9,6 @@ export async function action({ request, params }) {
   const formData = await request.formData()
   const updates = Object.fromEntries(formData)
   updates.user = params.user
-  console.log(updates)
   const res = await updateTask(params.taskId, updates)
   return redirect(`/${params.user}/overview/tasks/${params.taskId}`)
 }
