@@ -6,7 +6,7 @@ import { newTask } from '../api/updateTasksData'
 import { combineArraysByKey } from '../utils/data'
 import List from '../components/List'
 import ListContent from '../components/ListContent'
-import styles from './Tasks.module.css'
+import styles from './OverviewDetails.module.css'
 
 export async function loader() {}
 
@@ -68,11 +68,13 @@ export default function Tasks() {
       ) : (
         <p>Inga tasks</p>
       )}
+      <div className={styles.buttonBar}>
       <Form method="post">
-        <button className={`${styles.border} ${styles.button}`}>
+        <button className={`${styles.button}`}>
           Lägg till task
         </button>
       </Form>
+      </div>
     </>
   )
 }

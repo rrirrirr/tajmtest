@@ -12,7 +12,6 @@ export async function loader({ params }) {
 }
 
 export default function Timer() {
-  // const { task, timers } = useLoaderData()
   const fetcher = useFetcher()
   const id = useLoaderData()
   const { tasks, getTask } = useTasksContext()
@@ -60,16 +59,16 @@ export default function Timer() {
             </div>
             {task.activeTimerIndex > -1 ? (
               <>
-                <b>
+                <div className={styles.timer}>
                   {timeString(activeTimers[task.activeTimerIndex]?.elapsed)}
-                </b>
+                </div>
                 <fetcher.Form
                   method="post"
                   action={`../${
                     activeTimers[task.activeTimerIndex]?.id || ''
                   }/stop`}
                 >
-                  <button name="stop" value={task.id}>
+                  <button name="stop" value={task.id} className={styles.button}>
                     Stop
                   </button>
                 </fetcher.Form>

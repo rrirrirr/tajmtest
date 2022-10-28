@@ -4,7 +4,8 @@ import { useTasksContext } from '../contexts/tasksContext'
 import { useProjectsContext } from '../contexts/projectsContext'
 import ListContent from '../components/ListContent'
 import List from '../components/List'
-import styles from './Tasks.module.css'
+import styles from './OverviewDetails.module.css'
+
 
 export async function loader({ params }) {
   return params.projectId

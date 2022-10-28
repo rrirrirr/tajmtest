@@ -30,7 +30,7 @@ export default function Overview() {
                 : ''
             }
           >
-            PROJECTS
+            PROJEKT
           </NavLink>
         </div>
       </div>

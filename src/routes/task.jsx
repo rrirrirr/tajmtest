@@ -5,9 +5,8 @@ import { useProjectsContext } from '../contexts/projectsContext'
 import { useTimersContext } from '../contexts/timersContext'
 import ListContent from '../components/ListContent'
 import List from '../components/List'
-import TimePresentation from '../components/TimePresentation'
-import styles from './Tasks.module.css'
-import { totalTime } from '../utils/utils'
+import styles from './OverviewDetails.module.css'
+import { totalTime, timeString } from '../utils/utils'
 
 export async function loader({ params }) {
   return params.taskId
@@ -49,11 +48,10 @@ export default function Task() {
                   <Link to={`../../timers/${task.id}`}>
                     {new Date(timer.start).toDateString()}
                   </Link>
-                  <b>
-                    <TimePresentation
-                      time={totalTime([timer])}
-                    ></TimePresentation>
+                  <p><b>
+                  	{timeString(totalTime(timer))}
                   </b>
+                  </p>
                   <h2>
                     <Link to={`../projects/${project.id}`}>{project.name}</Link>
                   </h2>

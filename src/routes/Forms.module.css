@@ -14,12 +14,16 @@
   border-radius: 1rem;
   font-size: 2rem;
   width:80%;
+  background-color: #000000;
+  color:#a5adcb;
 }
 
 .select {
   border-radius: 1rem;
   font-size: 2rem;
   width:80%;
+  background-color: #000000;
+  color:#a5adcb;
 }
 
 .colorBox {
@@ -34,6 +38,10 @@
   padding: 1rem;
   width: 100%;
   margin: 0.2rem;
+  background-color: #000000;
+  color:#a5adcb;
+	letter-spacing: 0.1rem;
+	font-size: 1.2rem;
 }
 
 .colorBar {

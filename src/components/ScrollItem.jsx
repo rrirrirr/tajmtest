@@ -53,20 +53,10 @@ export default function ScrollItem(props) {
   }
 
   function getWidth() {
-    // console.log(props.position)
-    // if (Math.abs(props.position - my) > 50) {
-    // console.log('defaulting')
-    // return '50px'
-    // }
     const val =
       50 + p / Math.pow(Math.E, Math.pow(props.position - my, 2) / (2 * s * s))
     updatedWidth.current = val
     if (val !== width.current) updateWidth()
-    // setW
-    // return val
-    // return width.current
-    // return '${width.current}px'
-    // return `${200 / props.items}vw`
   }
 
   function handleScroll(e) {
@@ -76,7 +66,7 @@ export default function ScrollItem(props) {
   return (
     <div
       style={{
-        background: `linear-gradient(160deg, ${bgColor}, ${bgColor}60)`,
+        background: `linear-gradient(160deg, ${bgColor}, ${bgColor}80)`,
         filter: 'contrast(200%) brightness(120%)',
         width: `${update}px`
       }}

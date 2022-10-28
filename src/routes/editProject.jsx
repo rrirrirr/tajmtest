@@ -16,23 +16,23 @@ export default function EditProject() {
   const id = useLoaderData()
   const { projects, getProject } = useProjectsContext()
   const [project, setProject] = useState()
-  const [bgColor, setBgColor] = useState('#000000')
+  const [bgColor, setBgColor] = useState('#1e2030')
   const navigate = useNavigate()
   const presetColors = [
-    '#dc8a78',
-    '#dd7878',
-    '#ea76cb',
-    '#8839ef',
-    '#d20f39',
-    '#e64553',
-    '#fe640b',
-    '#df8e1d',
-    '#40a02b',
-    '#179299',
-    '#04a5e5',
-    '#209fb5',
-    '#1e66f5',
-    '#7287fd'
+    '#f4dbd6',
+    '#f0c6c6',
+    '#f5bde6',
+    '#c6a0f6',
+    '#ed8796',
+    '#ee99a0',
+    '#f5a97f',
+    '#eed49f',
+    '#a6da95',
+    '#8bd5ca',
+    '#91d7e3',
+    '#7dc4e4',
+    '#8aadf4',
+    '#b7bdf8'
   ]
 
   useEffect(() => {

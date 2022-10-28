@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
+  overflow: hidden;
 }
 
 .vertical {
@@ -20,6 +20,7 @@
 }
 
 .sideways {
+  letter-spacing: 0.3rem;
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }

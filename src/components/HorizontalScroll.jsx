@@ -6,7 +6,6 @@ export default function HorizontalScroll(props) {
   const [scrollPosition, setScrollPosition] = useState(0)
 
   function handleScroll(e) {
-    // console.log(e.target.scrollLeft)
     // if(Math.abs(e.target.scrollLeft - scrollPosition) > 10) setScrollPosition(e.target.scrollLeft)
     setScrollPosition(e.target.scrollLeft)
   }

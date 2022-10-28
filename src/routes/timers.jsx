@@ -9,7 +9,9 @@ import List from '../components/List'
 import ListContent from '../components/ListContent'
 import styles from './Timers.module.css'
 
-export async function loader() {}
+export async function loader({params}) {
+  return params.taskId
+}
 
 export default function Timers() {
   const { tasks } = useTasksContext()
@@ -179,7 +181,7 @@ export default function Timers() {
                         value={task.id}
                         className={styles.button}
                       >
-                        Starta ny timer
+                        Starta
                       </button>
                     )}
                   </fetcher.Form>

@@ -7,7 +7,7 @@ import { useEffect, useContext } from 'react'
 import { newProject } from '../api/updateProjectsData'
 import List from '../components/List'
 import ListContent from '../components/ListContent'
-import styles from './Projects.module.css'
+import styles from './OverviewDetails.module.css'
 
 export async function action({ params }) {
   try {
@@ -47,11 +47,13 @@ export default function Projects() {
       ) : (
         <p>no projects</p>
       )}
-      <Form method="post">
-        <button className={`${styles.border} ${styles.button}`}>
-          Lägg till projekt
-        </button>
-      </Form>
+      <div className={`${styles.buttonBar}`}>
+        <Form method="post">
+          <button className={`${styles.button}`}>
+            Lägg till projekt
+          </button>
+        </Form>
+      </div>
     </>
   )
 }

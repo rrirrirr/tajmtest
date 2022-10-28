@@ -6,8 +6,8 @@
   font-weight: 400;
   padding: 0;
 
-  color: #000000;
-  background-color: #242424;
+  color: #cad3f5;
+  background-color: #181926;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,11 +21,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #f5bde6;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #c6a0f6;
 }
 
 body {
