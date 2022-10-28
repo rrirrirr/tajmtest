@@ -1,10 +1,9 @@
-import { useLoaderData, Link, Outlet } from 'react-router-dom'
+import { useLoaderData, Link, Outlet, Form } from 'react-router-dom'
 import { getUsers } from '../api/fetchUserData'
 import styles from './Users.module.css'
 
 export async function loader() {
-	const res = await getUsers()
-	console.log(res.data)
+  const res = await getUsers()
   return res.data
 }
 
@@ -16,6 +15,19 @@ export default function Users() {
       {users.map((user) => (
         <div key={user.user}>
           <Link to={`/${user.user}/overview/projects`}>{user.user}</Link>
+          <Form
+            method="post"
+            action={`${user.id}/destroy`}
+            onSubmit={(e) => {
+              if (!confirm('Vill du verkligen ta bort denna användare?')) {
+                e.preventDefault()
+              }
+            }}
+          >
+            <button type="submit">
+              Ta bort
+            </button>
+          </Form>
         </div>
       ))}
     </div>

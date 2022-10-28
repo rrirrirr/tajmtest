@@ -4,12 +4,15 @@ import { useEffect } from 'react'
 import { getTimers } from '../api/fetchTimerData'
 import { getTasks } from '../api/fetchTasksData'
 import { getProjects } from '../api/fetchProjectsData'
+import { getUser } from '../api/fetchUserData'
 import { useTasksContext } from '../contexts/tasksContext'
 import { useTimersContext } from '../contexts/timersContext'
 import { useProjectsContext } from '../contexts/projectsContext'
 
 export async function loader({ params }) {
   const user = params.user
+  const res = await getUser(user)
+  if (!res.data.length) throw new Error('no user')
   const tasks = await getTasks(user)
   const timers = await getTimers(user)
   const projects = await getProjects(user)
@@ -30,7 +33,6 @@ export default function User() {
   const { projects, setProjects } = useProjectsContext()
 
   useEffect(() => {
-    console.log(data)
     setTasks(data.tasks)
     setTimers(data.timers)
     setProjects(data.projects)

@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Root from './routes/root'
+import ErrorPage from './errorPage'
 import Users, { loader as usersLoader } from './routes/users'
 import User, { loader as userLoader } from './routes/user'
+import UserError from './userError'
 import NewUser, { action as addUserAction } from './routes/newUser'
+import { action as deleteUserAction } from './routes/deleteUser'
 
 import Overview from './routes/overview'
 import History from './routes/history'
@@ -24,7 +27,11 @@ import { action as deleteTaskAction } from './routes/deleteTask'
 
 import Timers, { loader as timersLoader } from './routes/timers'
 import Timer, { loader as timerLoader } from './routes/timer'
-import { startTaskTimerAction, stopTaskTimerAction, deleteTaskTimerAction } from './routes/taskTimer'
+import {
+  startTaskTimerAction,
+  stopTaskTimerAction,
+  deleteTaskTimerAction
+} from './routes/taskTimer'
 
 import './index.css'
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
@@ -36,17 +43,20 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: 'users',
         element: <Users />,
         loader: usersLoader
       },
+      { path: 'users/:userId/destroy', action: deleteUserAction },
       { path: 'newUser', element: <NewUser />, action: addUserAction },
       {
         path: ':user',
         element: <User />,
         loader: userLoader,
+        errorElement: <UserError />,
         children: [
           {
             path: 'history',

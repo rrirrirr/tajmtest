@@ -162,12 +162,12 @@ export default function Timers() {
                           {timeString(totalTime(task.timers))}
                         </div>
                       )}
-                        <p>Senaste</p>
                     </>
                   )}
                   <div>
                     {task.latest ? (
                       <>
+                        <p>Senaste</p>
                         {timeString(totalTime([task.latest]))}{' '}
                       </>
                     ) : (

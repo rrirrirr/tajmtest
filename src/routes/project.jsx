@@ -19,9 +19,11 @@ export default function Project() {
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    setFilteredTasks(getTasks(id))
-    const res = getProject(id)
-    res ? setProject(res) : setFailed(true)
+    if (tasks.length && projects.length) {
+      setFilteredTasks(getTasks(id))
+      const res = getProject(id)
+      res ? setProject(res) : setFailed(true)
+    }
   }, [projects, tasks])
 
   return (

@@ -37,7 +37,7 @@ export default function Timer() {
       setProject(project)
       if (timers.length) {
         task.timers = getTimers(id)
-        setTotal(totalTime(task.timers))
+        setTotal(task.timers.length ? totalTime(task.timers) : 0)
         setActiveTimersIndex(getActiveTimerIndex(task.id))
       } else {
         task.timers = []
