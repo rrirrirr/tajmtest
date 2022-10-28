@@ -22,7 +22,6 @@ export default function TaskItem({ title, children, link }) {
       }`}
       ref={ref}
     >
-      {width}
       {width > 150 ? (
         <div>{children}</div>
       ) : (
