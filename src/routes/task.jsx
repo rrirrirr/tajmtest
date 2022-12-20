@@ -4,6 +4,7 @@ import { useTasksContext } from '../contexts/tasksContext'
 import { useProjectsContext } from '../contexts/projectsContext'
 import { useTimersContext } from '../contexts/timersContext'
 import ListContent from '../components/ListContent'
+import TimerInfo from '../components/TimerInfo'
 import List from '../components/List'
 import styles from './OverviewDetails.module.css'
 import { totalTime, timeString } from '../utils/utils'
@@ -23,9 +24,12 @@ export default function Task() {
   const { timers, getTimers } = useTimersContext()
 
   useEffect(() => {
-    if (timers?.length && task && !tasksTimers.length)
+    if (timers?.length && task && !tasksTimers.length) {
       setTasksTimers(getTimers(task.id))
-    if (task && projects && !project) setProject(getProject(task.projectId))
+    }
+    if (task && projects && !project) {
+      setProject(getProject(task.projectId))
+    }
   }, [timers, task, projects])
 
   useEffect(() => {
@@ -47,15 +51,7 @@ export default function Task() {
                   title={new Date(timer.start).toDateString()}
                   link={`../../timers/${task.id}`}
                 >
-                  <Link to={`../../timers/${task.id}`}>
-                    {new Date(timer.start).toDateString()}
-                  </Link>
-                  <p>
-                    <b>{timeString(totalTime(timer))}</b>
-                  </p>
-                  <h2>
-                    <Link to={`../projects/${project.id}`}>{project.name}</Link>
-                  </h2>
+                  <TimerInfo timer={timer} task={task} project={project} />
                 </ListContent>
               ))
             ) : (
@@ -75,15 +71,7 @@ export default function Task() {
                 Ändra
               </button>
             </Form>
-            <Form
-              method="post"
-              action="destroy"
-              onSubmit={(e) => {
-                if (!confirm('Vill du verkligen ta bort denna task?')) {
-                  e.preventDefault()
-                }
-              }}
-            >
+            <Form method="post" action="destroy">
               <button type="submit" className={`${styles.smallButton}`}>
                 Ta bort
               </button>

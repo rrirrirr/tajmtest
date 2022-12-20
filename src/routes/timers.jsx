@@ -1,19 +1,17 @@
-import { useFetcher, Outlet, Link } from 'react-router-dom'
+import { useLocation, useFetcher, Outlet, Link } from 'react-router-dom'
 import { useTasksContext } from '../contexts/tasksContext'
 import { useTimersContext } from '../contexts/timersContext'
 import { useProjectsContext } from '../contexts/projectsContext'
 import { combineArraysByKey } from '../utils/data'
 import { totalTime, timeString } from '../utils/utils'
 import { useEffect, useState } from 'react'
+import TimerComponent from '../components/TimerComponent'
 import List from '../components/List'
 import ListContent from '../components/ListContent'
 import styles from './Timers.module.css'
 
-export async function loader({params}) {
-  return params.taskId
-}
-
 export default function Timers() {
+  const path = useLocation().pathName
   const { tasks } = useTasksContext()
   const { projects } = useProjectsContext()
   const {
@@ -174,42 +172,18 @@ export default function Timers() {
                       ''
                     )}
                   </div>
-                  <fetcher.Form method="post" action={`${task.id}/start`}>
-                    {task.activeTimerIndex < 0 && (
-                      <button
-                        name="start"
-                        value={task.id}
-                        className={styles.button}
-                      >
-                        Starta
-                      </button>
-                    )}
-                  </fetcher.Form>
-
-                  <fetcher.Form
-                    method="post"
-                    action={`${
-                      activeTimers[task.activeTimerIndex]?.id || ''
-                    }/stop`}
-                  >
-                    {task.activeTimerIndex > -1 && (
-                      <button
-                        name="stop"
-                        value={activeTimers[task.activeTimerIndex]?.id || -1}
-                        className={styles.button}
-                      >
-                        Stop
-                      </button>
-                    )}
-                  </fetcher.Form>
+                  <TimerComponent
+                    activeTimer={
+                      task.activeTimerIndex < 0
+                        ? null
+                        : activeTimers[task.activeTimerIndex]
+                    }
+                    task={task}
+                    path={path}
+                  />
                   <fetcher.Form
                     method="post"
                     action={`${task.latest ? task.latest.id : 'no'}/destroy`}
-                    onSubmit={(e) => {
-                      if (!confirm('Vill du verkligen ta bort denna timer?')) {
-                        e.preventDefault()
-                      }
-                    }}
                   >
                     {task.latest && task.activeTimerIndex < 0 && (
                       <button name="delete" className={styles.button}>
@@ -222,7 +196,7 @@ export default function Timers() {
             </List>
           </div>
         ))}
-        {!dates.size && <div>Inga timers</div>}
+      {!dates.size && <div>Inga timers</div>}
     </>
   )
 }

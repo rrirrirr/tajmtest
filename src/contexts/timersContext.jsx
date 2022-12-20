@@ -46,12 +46,17 @@ export function TimersProvider({ children }) {
   }, [activeTimers])
 
   function getTimer(id) {
-    return timers.find(timer => timer.id == id)
+    return timers.find((timer) => timer.id == id)
   }
 
   function getLatestTimer(id) {
     const filteredTimers = timers.filter((timer) => timer.taskId === id)
-    return filteredTimers.length ? filteredTimers.at(-1) : false
+    const sortedTimers = filteredTimers.sort((a, b) => {
+      const dateA = a.end ? new Date(a.end) : new Date()
+      const dateB = b.end ? new Date(b.end) : new Date()
+      return dateA - dateB
+    })
+    return sortedTimers.length ? sortedTimers.at(-1) : false
   }
 
   function getTimers(id) {

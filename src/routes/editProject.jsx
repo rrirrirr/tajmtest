@@ -3,6 +3,7 @@ import { useProjectsContext } from '../contexts/projectsContext'
 import { useEffect, useState } from 'react'
 import { updateProject } from '../api/updateProjectsData'
 import styles from './Forms.module.css'
+import ColorPicker from '../components/ColorPicker'
 
 export async function action({ request, params }) {
   const formData = await request.formData()
@@ -16,7 +17,6 @@ export default function EditProject() {
   const id = useLoaderData()
   const { projects, getProject } = useProjectsContext()
   const [project, setProject] = useState()
-  const [bgColor, setBgColor] = useState('#1e2030')
   const navigate = useNavigate()
   const presetColors = [
     '#f4dbd6',
@@ -39,10 +39,6 @@ export default function EditProject() {
     if (projects.length) setProject(getProject(id))
   }, [projects])
 
-  useEffect(() => {
-    if (project) setBgColor(project.color)
-  }, [project])
-
   return (
     <div className={styles.container}>
       {project ? (
@@ -57,33 +53,10 @@ export default function EditProject() {
               className={styles.textInput}
             />
           </div>
-          <div style={{ backgroundColor: bgColor }} className={styles.colorBox}>
-            &nbsp;
-          </div>
-          <div className={styles.colorBar}>
-            {presetColors.map((presetColor) => (
-              <button
-                key={presetColor}
-                style={{ background: presetColor }}
-                onClick={() => setBgColor(presetColor)}
-                type="button"
-                className={styles.colorButton}
-              >
-                &nbsp;
-              </button>
-            ))}
-          </div>
-          <div>
-            <input
-              placeholder="Project color"
-              aria-label="Project color"
-              type="text"
-              name="color"
-              value={bgColor}
-              onChange={(e) => setBgColor(e.target.value)}
-              className={styles.textInput}
-            />
-          </div>
+          <ColorPicker
+            colors={presetColors}
+            startColor={project.color || '#f4dbd6'}
+          />
           <div className={styles.buttonBar}>
             <button className={styles.button} type="submit">
               Spara

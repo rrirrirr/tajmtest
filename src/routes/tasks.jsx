@@ -25,8 +25,6 @@ export default function Tasks() {
   const { projects, getProject } = useProjectsContext()
   const [tasksWithProjectInfo, setTasksWithProjectInfo] = useState()
 
-  useEffect(() => {}, [])
-
   useEffect(() => {
     if (tasks.length && projects.length) {
       setTasksWithProjectInfo(
@@ -39,6 +37,8 @@ export default function Tasks() {
           }
         ]).filter((task) => 'title' in task)
       )
+    } else {
+      setTasksWithProjectInfo([])
     }
   }, [tasks, projects])
 
@@ -69,11 +69,9 @@ export default function Tasks() {
         <p>Inga tasks</p>
       )}
       <div className={styles.buttonBar}>
-      <Form method="post">
-        <button className={`${styles.button}`}>
-          Lägg till task
-        </button>
-      </Form>
+        <Form method="post">
+          <button className={`${styles.button}`}>Lägg till task</button>
+        </Form>
       </div>
     </>
   )

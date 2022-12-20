@@ -35,6 +35,12 @@ export function datesBetween(start, end) {
     .map((date) => date.toDateString())
 }
 
+export function sortDates(a, b) {
+  const dateA = new Date(a)
+  const dateB = new Date(b)
+  return dateA - dateB
+}
+
 export function distanceDays(start, end) {
   return Math.round((endDate - startDate) / 86400000)
 }
@@ -67,24 +73,18 @@ export function totalForDay(start, end, day) {
 }
 
 export function timeString(seconds) {
-  const minutes = Math.round(seconds / 60)
-  const hours = Math.round(minutes / 60)
+  const minutes = Math.floor(seconds / 60)
+  const hours = Math.floor(minutes / 60)
+  const modMinutes = minutes % 60
+  const modSeconds = seconds % 60
   // const days = Math.round(hours / 24)
   let string = ''
-  string += seconds > 36000 ? hours : seconds > 3600 ? `0 ${hours}` : '00'
+  string += seconds > 36000 ? hours : seconds > 3600 ? `0${hours}` : '00'
   string += ':'
   string +=
-    minutes % 60 > 9
-      ? minutes % 60
-      : minutes % 60 > 0
-      ? `0${minutes % 60}`
-      : '00'
+    modMinutes > 9 ? modMinutes : modMinutes > 0 ? `0${modMinutes}` : '00'
   string += ':'
   string +=
-    seconds % 60 > 9
-      ? seconds % 60
-      : seconds % 60 > 0
-      ? `0${seconds % 60}`
-      : '00'
+    modSeconds > 9 ? modSeconds : modSeconds > 0 ? `0${modSeconds}` : '00'
   return string
 }

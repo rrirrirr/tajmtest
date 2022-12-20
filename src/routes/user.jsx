@@ -13,9 +13,10 @@ export async function loader({ params }) {
   const user = params.user
   const res = await getUser(user)
   if (!res.data.length) throw new Error('no user')
-  const tasks = await getTasks(user)
   const timers = await getTimers(user)
   const projects = await getProjects(user)
+  const tasks = await getTasks(user)
+
   return {
     user,
     tasks: tasks.data,

@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import Root from './routes/root'
 import ErrorPage from './errorPage'
 import Users, { loader as usersLoader } from './routes/users'
@@ -25,7 +24,8 @@ import Tasks, {
 import EditTask, { action as taskEditAction } from './routes/editTask'
 import { action as deleteTaskAction } from './routes/deleteTask'
 
-import Timers, { loader as timersLoader } from './routes/timers'
+import Timers from './routes/timers'
+
 import Timer, { loader as timerLoader } from './routes/timer'
 import {
   startTaskTimerAction,
@@ -60,13 +60,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'history',
-            element: <History />,
-            loader: timersLoader
+            element: <History />
           },
           {
             path: 'timers',
             element: <Timers />,
-            loader: timersLoader,
             children: [
               {
                 path: ':taskId',
@@ -94,7 +92,7 @@ const router = createBrowserRouter([
               {
                 path: 'tasks',
                 element: <Tasks />,
-                loader: tasksLoader,
+                // loader: tasksLoader,
                 action: taskAction
               },
               {

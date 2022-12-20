@@ -6,7 +6,7 @@ export async function startTaskTimerAction({ params }) {
     user: params.user,
     taskId: params.taskId,
     start: new Date().toISOString(),
-    end: '',
+    end: ''
   })
   return redirect(`/${params.user}/timers/${params.taskId}`)
 }
@@ -14,13 +14,13 @@ export async function startTaskTimerAction({ params }) {
 export async function stopTaskTimerAction({ params }) {
   await updateTimer(params.timerId, {
     taskId: params.taskId,
-    end: new Date().toISOString(),
+    end: new Date().toISOString()
   })
-  // return redirect(`/timers`)
+  // return redirect(`/${params.user}/timers`)
+  return 0
 }
 
 export async function deleteTaskTimerAction({ params }) {
   await deleteTimer(params.timerId)
   return redirect(`/${params.user}/timers`)
 }
-

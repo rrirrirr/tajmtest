@@ -19,7 +19,7 @@ export default function Project() {
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    if (tasks.length && projects.length) {
+    if (projects.length) {
       setFilteredTasks(getTasks(id))
       const res = getProject(id)
       res ? setProject(res) : setFailed(true)
@@ -62,15 +62,7 @@ export default function Project() {
                 Ändra
               </button>
             </Form>
-            <Form
-              method="post"
-              action="destroy"
-              onSubmit={(e) => {
-                if (!confirm('Vill du verkligen ta bort detta projekt?')) {
-                  e.preventDefault()
-                }
-              }}
-            >
+            <Form method="post" action="destroy">
               <button type="submit" className={`${styles.smallButton}`}>
                 Ta bort
               </button>

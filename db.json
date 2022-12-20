@@ -11,6 +11,10 @@
     {
       "user": "admin",
       "id": "SjAUvi-"
+    },
+    {
+      "user": "testboy",
+      "id": "cYalT0Z"
     }
   ],
   "projects": [
@@ -18,7 +22,7 @@
       "name": "proj 1",
       "id": "alICPN",
       "user": "Oscar",
-      "color": "#91d7e3"
+      "color": "#a6da95"
     },
     {
       "user": "user1",
@@ -61,6 +65,38 @@
       "id": "8ItC8jP",
       "name": "proj7",
       "color": "#a6da95"
+    },
+    {
+      "user": "Oscar",
+      "id": "AP2fZCi"
+    },
+    {
+      "user": "Oscar",
+      "id": "6cENQx1"
+    },
+    {
+      "user": "Oscar",
+      "id": "QITFb0V"
+    },
+    {
+      "user": "Oscar",
+      "id": "J8vFTeG"
+    },
+    {
+      "user": "Oscar",
+      "id": "iHjMv2W"
+    },
+    {
+      "user": "testboy",
+      "id": "AJIiyJU",
+      "name": "test",
+      "color": "#c6a0f6"
+    },
+    {
+      "user": "testboy",
+      "id": "5GgcE3T",
+      "name": "test",
+      "color": "#c6a0f6"
     }
   ],
   "tasks": [
@@ -90,6 +126,18 @@
     },
     {
       "user": "Oscar",
+      "id": "VttZE",
+      "title": "task 11",
+      "projectId": "mLzpwtU"
+    },
+    {
+      "user": "Oscar",
+      "id": "qqttZE",
+      "title": "task 12",
+      "projectId": "mLzpwtU"
+    },
+    {
+      "user": "Oscar",
       "id": "noEFgCv",
       "title": "task 3",
       "projectId": "8ItC8jP"
@@ -99,6 +147,70 @@
       "id": "w0QuPGO",
       "title": "task 4",
       "projectId": "Ph1kC03"
+    },
+    {
+      "id": "jStN44P"
+    },
+    {
+      "user": "Oscar",
+      "id": "nZ3rHnF"
+    },
+    {
+      "user": "Oscar",
+      "id": "ywN6JU9"
+    },
+    {
+      "user": "testboy",
+      "id": "N8Dw_eu",
+      "title": "testTask",
+      "projectId": "AJIiyJU"
+    }
+  ],
+  "invoices": [
+    {
+      "projectId": "alICPN",
+      "created_date": "2022-10-28T15:08:51.220Z",
+      "due_date": "2022-10-28T15:09:04.159Z",
+      "id": "1",
+      "customer_name": "Oscar",
+      "status": "betald",
+      "amount": 3100
+    },
+    {
+      "id": "EaEfjAG",
+      "customer_name": "test",
+      "projectId": "mLzpwtU",
+      "amount": 7607,
+      "status": "obetald",
+      "created_date": "2022-11-24T14:36:07.103Z",
+      "due_date": "2022-12-24T14:36:07.103Z"
+    },
+    {
+      "id": "piL_brk",
+      "customer_name": "test",
+      "projectId": "mLzpwtU",
+      "amount": 10998,
+      "status": "obetald",
+      "created_date": "2022-11-25T15:43:47.795Z",
+      "due_date": "2022-12-25T15:43:47.795Z"
+    },
+    {
+      "id": "natL_brk",
+      "customer_name": "test",
+      "projectId": "mLzpwtU",
+      "amount": 3998,
+      "status": "betald",
+      "created_date": "2022-04-25T15:43:47.795Z",
+      "due_date": "2022-05-25T15:43:47.795Z"
+    },
+    {
+      "id": "piL_eatbrk",
+      "customer_name": "test",
+      "projectId": "mLzpwtU",
+      "amount": 1098,
+      "status": "beltad",
+      "created_date": "2022-09-25T15:43:47.795Z",
+      "due_date": "2022-10-25T15:43:47.795Z"
     }
   ],
   "timelogs": [
@@ -118,10 +230,45 @@
     },
     {
       "user": "Oscar",
+      "taskId": "VItk0ZE",
+      "start": "2022-10-28T15:09:10.447Z",
+      "end": "2022-10-28T15:39:22.052Z",
+      "id": "3"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "VItk0ZE",
+      "start": "2022-10-28T15:09:10.447Z",
+      "end": "2022-10-28T19:09:22.052Z",
+      "id": "4"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "VItk0ZE",
+      "start": "2022-10-28T15:09:10.447Z",
+      "end": "2022-10-28T18:09:22.052Z",
+      "id": "5"
+    },
+    {
+      "user": "Oscar",
       "taskId": "flICbPN",
       "start": "2022-10-28T15:08:51.220Z",
       "end": "2022-10-28T15:09:04.159Z",
-      "id": "3"
+      "id": "8"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "VttZE",
+      "start": "2022-10-28T15:08:51.220Z",
+      "end": "2022-10-28T15:09:04.159Z",
+      "id": "8tnsta"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "qqttZE",
+      "start": "2022-10-28T15:08:51.220Z",
+      "end": "2022-10-28T15:09:04.159Z",
+      "id": "heatlh"
     },
     {
       "user": "Oscar",
@@ -154,9 +301,107 @@
     {
       "user": "Oscar",
       "taskId": "noEFgCv",
-      "start": "2022-10-27T15:13:45.882Z",
-      "end": "2022-10-27T15:13:49.143Z",
-      "id": "E87wjTS"
+      "start": "2022-06-26T15:13:41.251Z",
+      "end": "2022-07-26T15:13:44.539Z",
+      "id": "zgO2SFt"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "noEFgCv",
+      "start": "2022-08-26T15:13:41.251Z",
+      "end": "2022-09-26T15:13:44.539Z",
+      "id": "zgO2SF1"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "noEFgCv",
+      "start": "2022-11-23T15:13:41.251Z",
+      "end": "2022-11-20T15:13:44.539Z",
+      "id": "lsiSF1"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "noEFgCv",
+      "start": "2022-11-22T15:13:41.251Z",
+      "end": "2022-11-23T15:13:44.539Z",
+      "id": "hsihlu"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "noEFgCv",
+      "start": "2022-11-21T15:13:41.251Z",
+      "end": "2022-11-22T15:13:44.539Z",
+      "id": "heunutn"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T11:44:19.363Z",
+      "end": "2022-12-15T11:44:30.343Z",
+      "id": "2PuPazz"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T11:44:46.342Z",
+      "end": "2022-12-15T11:44:54.295Z",
+      "id": "rSUpk0Q"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:09:50.800Z",
+      "end": "2022-12-15T16:11:21.058Z",
+      "id": "wuXTVTD"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:12:31.729Z",
+      "end": "2022-12-15T16:13:02.778Z",
+      "id": "4Wpgw2F"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:13:46.729Z",
+      "end": "2022-12-15T16:14:35.450Z",
+      "id": "7HgDA-Q"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:17:22.885Z",
+      "end": "2022-12-15T16:17:30.471Z",
+      "id": "-H23jLB"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:19:05.500Z",
+      "end": "2022-12-15T16:19:13.546Z",
+      "id": "zEtxjLB"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "flICbPN",
+      "start": "2022-12-15T16:19:29.271Z",
+      "end": "2022-12-15T16:19:33.243Z",
+      "id": "v3iGzFl"
+    },
+    {
+      "user": "Oscar",
+      "taskId": "VItk0ZE",
+      "start": "2022-12-19T02:22:41.615Z",
+      "end": "2022-12-19T02:26:28.146Z",
+      "id": "GId8MPa"
+    },
+    {
+      "user": "testboy",
+      "taskId": "N8Dw_eu",
+      "start": "2022-12-20T23:30:57.386Z",
+      "end": "2022-12-20T23:30:58.495Z",
+      "id": "w5K3n7F"
     }
   ]
 }

@@ -12,3 +12,6 @@ export async function deleteProject(id) {
   return axios.delete(`${import.meta.env.VITE_URL}/projects/${id}`)
 }
 
+export async function deleteProjectByName(name) {
+  return axios.delete(`${import.meta.env.VITE_URL}/projects?name=${name}`)
+}

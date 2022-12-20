@@ -6,6 +6,7 @@ import { useProjectsContext } from '../contexts/projectsContext'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import styles from './Timer.module.css'
+import TimerComponent from '../components/TimerComponent'
 
 export async function loader({ params }) {
   return params.taskId
@@ -29,7 +30,7 @@ export default function Timer() {
   useEffect(() => {
     if (tasks.length && projects.length && timers) {
       const task = getTask(id)
-      if(task.projectId === 'none') {
+      if (task.projectId === 'none') {
         setFailed(true)
         return
       }
@@ -62,35 +63,15 @@ export default function Timer() {
             <div>
               <Link to={`../../overview/tasks/${task.id}`}>{task.title}</Link>
             </div>
-            {task.activeTimerIndex > -1 ? (
-              <>
-                <div className={styles.timer}>
-                  {timeString(activeTimers[task.activeTimerIndex]?.elapsed)}
-                </div>
-                <fetcher.Form
-                  method="post"
-                  action={`../${
-                    activeTimers[task.activeTimerIndex]?.id || ''
-                  }/stop`}
-                >
-                  <button name="stop" value={task.id} className={styles.button}>
-                    Stop
-                  </button>
-                </fetcher.Form>
-              </>
-            ) : (
-              <>
-                <fetcher.Form method="post" action={`../${task.id}/start`}>
-                  <button
-                    name="start"
-                    value={task.id}
-                    className={styles.button}
-                  >
-                    Starta
-                  </button>
-                </fetcher.Form>
-              </>
-            )}
+            <TimerComponent
+              activeTimer={
+                task.activeTimerIndex > -1
+                  ? activeTimers[task.activeTimerIndex]
+                  : null
+              }
+              task={task}
+              path="../"
+            />
           </>
         ) : failed ? (
           <p>Hittade inte timer</p>

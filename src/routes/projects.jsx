@@ -6,6 +6,7 @@ import {
 import { useEffect, useContext } from 'react'
 import { newProject } from '../api/updateProjectsData'
 import List from '../components/List'
+import ListTitle from '../components/ListTitle'
 import ListContent from '../components/ListContent'
 import styles from './OverviewDetails.module.css'
 
@@ -37,21 +38,17 @@ export default function Projects() {
                   title={project.name}
                   link={project.id}
                 >
-                  <Link to={project.id}>
-                    <h2>{project.name}</h2>
-                  </Link>
+                  <ListTitle link={project.id} title={project.name} />
                 </ListContent>
               ))}
           </List>
         </div>
       ) : (
-        <p>no projects</p>
+        <p>Inga projekt</p>
       )}
       <div className={`${styles.buttonBar}`}>
         <Form method="post">
-          <button className={`${styles.button}`}>
-            Lägg till projekt
-          </button>
+          <button className={`${styles.button}`}>Lägg till projekt</button>
         </Form>
       </div>
     </>
