@@ -1,4 +1,4 @@
-# tajm
+# tajmtest
 Test för en tajming-app! Av Carl-Oscar Pihl
 
 ## Usage
