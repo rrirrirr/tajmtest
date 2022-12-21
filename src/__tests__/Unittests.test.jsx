@@ -9,6 +9,7 @@ import TimeDisplay from '../components/TimeDisplay'
 import ColorPicker from '../components/ColorPicker'
 import {
   BrowserRouter,
+  createBrowserRouter,
   createMemoryRouter,
   RouterProvider
 } from 'react-router-dom'
@@ -344,6 +345,91 @@ describe('Combine arrays by keys', () => {
         combine: 'test',
         '4t': '4',
         '5t': '5'
+      }
+    ])
+  })
+
+  test('combine with all props in base and all props in the combine array', () => {
+    combineWith.push({ 4: '7', 5: '8', 6: '9', c: 'test' })
+    const array = combineArraysByKey([
+      { array: base, key: 'combine', props: 'all' },
+      {
+        array: combineWith,
+        key: 'c',
+        props: 'all',
+        all: 'test'
+      }
+    ])
+    expect(array[0].test).toStrictEqual([
+      { 4: '4', 5: '5', 6: '6', c: 'test' },
+      { 4: '7', 5: '8', 6: '9', c: 'test' }
+    ])
+  })
+
+  test('simple combine with all props in base and multiple combined objects', () => {
+    const array = combineArraysByKey([
+      { array: base, key: 'combine', props: 'all' },
+      {
+        array: combineWith,
+        key: 'c',
+        props: { 4: '4t', 5: '5t' }
+      }
+    ])
+    expect(array).toStrictEqual([
+      {
+        1: '1',
+        2: '2',
+        3: '3',
+        combine: 'test',
+        '4t': ['4', '7'],
+        '5t': ['5', '8']
+      }
+    ])
+  })
+
+  test('simple combine with some props in base and multiple combined objects', () => {
+    const array = combineArraysByKey([
+      { array: base, key: 'combine', props: { 3: '2t' } },
+      {
+        array: combineWith,
+        key: 'c',
+        props: { 4: '4t', 5: '5t' }
+      }
+    ])
+    expect(array).toStrictEqual([
+      { 0: ['2t', '3'], '4t': ['4', '7'], '5t': ['5', '8'] }
+    ])
+  })
+
+  test('combine three arrays with all props in base and multiple combined objects', () => {
+    const thirdArray = [
+      { 7: '4', 8: '5', 9: '6', d: 'test' },
+      { 7: '7', 8: '8', 9: '9', d: 'no' }
+    ]
+
+    const array = combineArraysByKey([
+      { array: base, key: 'combine', props: 'all' },
+      {
+        array: combineWith,
+        key: 'c',
+        props: { 4: '4t', 5: '5t' }
+      },
+      {
+        array: thirdArray,
+        key: 'd',
+        props: { 8: '8', 9: '9' }
+      }
+    ])
+    expect(array).toStrictEqual([
+      {
+        1: '1',
+        2: '2',
+        3: '3',
+        8: '5',
+        9: '6',
+        combine: 'test',
+        '4t': ['4', '7'],
+        '5t': ['5', '8']
       }
     ])
   })

@@ -43,7 +43,6 @@ import {
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import * as predata from './data'
-import ContextSetup, { loader as testLoader } from './ContextSetup'
 
 let data = predata.default
 
