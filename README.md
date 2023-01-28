@@ -1,5 +1,5 @@
 # tajmtest
-Test för en tajming-app! Av Carl-Oscar Pihl
+Tester för k1 
 
 ## Usage
 `npm run test` för att köra unit- och integrations-tester.
